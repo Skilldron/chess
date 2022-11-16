@@ -52,3 +52,10 @@ En enlevant le bout de code évoqué précédemment (cf: _Open/Closed Principle_
 Désormais seul les classes ayant besoin de la méthode l'implémente tandis que précédemment la classes `Piece` disposait aussi de cette méthode qui lui était inutile.
 
 ---
+
+## **D : Dependency Inversion Principle (DIP)**
+
+Encore une fois, grace à l'interface `PossibleMovementInterface` que toutes mes classes implémente je suis sûr qu'elles disposent toutes de la méthode `getPossibleMovement`.
+
+Avant, la méthode était présente dans la classe parente `Piece` mais ne faisait rien. Si j'oubliais d'écrire la méthode dans la classe `Pion` par exemple il est possible que le code ne bug pas mais ne fonctionne pas comme voulu et si c'est un gros projet cela peut-être dur à débug.
+Alors qu'avec l'interface le code va directement me donner un message d'erreur et je pourrais facilement en déduire que j'ai oublié d'implémenter l'interface.
