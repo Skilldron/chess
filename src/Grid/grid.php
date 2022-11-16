@@ -1,13 +1,5 @@
 <?php
 
-include('piece.php');
-include('pion.php');
-include('tour.php');
-include('fou.php');
-include('cavalier.php');
-include('reine.php');
-include('roi.php');
-
 class Grid{
     protected $grid;
     protected $size;
@@ -58,12 +50,12 @@ class Grid{
         for($i = 0; $i < $this->size; $i++){
             for($j = 0; $j < $this->size; $j++){
                 if($this->grid[$i][$j] != null){
-                    echo "X";
+                    echo sprintf("%-2s", "♔ ");
                 }else{
                     if(in_array(array($i,$j),$pieceMovement)){
-                        echo "1";
+                        echo sprintf("%-2d", "1");
                     }else{
-                        echo "0";
+                        echo sprintf("%-2d", "0");
                     }
                 }
             }
@@ -85,38 +77,3 @@ class Grid{
         $this->size = $size;
     }
 }
-$grid = new Grid(8);
-
-$pion = new Pion("Pion",array(3, 4), TypePawn::WHITE);
-$grid->setPiece($pion);
-$grid->displayGrid();
-
-echo "========================\n";
-
-$tour = new Tour("Tour",array(4, 4), TypePawn::WHITE);
-$grid->setPiece($tour);
-$grid->displayGrid();
-
-echo "========================\n";
-
-$fou = new Fou("Fou",array(4, 4), TypePawn::WHITE);
-$grid->setPiece($fou);
-$grid->displayGrid();
-
-echo "========================\n";
-
-$cavalier = new Cavalier("Cavalier",array(1, 2), TypePawn::WHITE);
-$grid->setPiece($cavalier);
-$grid->displayGrid();
-
-echo "========================\n";
-
-$reine = new Reine("Reine",array(4, 4), TypePawn::WHITE);
-$grid->setPiece($reine);
-$grid->displayGrid();
-
-echo "========================\n";
-
-$roi = new Roi("Roi",array(4, 4), TypePawn::WHITE);
-$grid->setPiece($roi);
-$grid->displayGrid();
