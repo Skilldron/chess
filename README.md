@@ -1,6 +1,6 @@
 # Principe SOLID
 
-## S : Single Responsibility Principle (SRP)
+## **S : Single Responsibility Principle (SRP)**
 
 J'ai modifier l'architecture de mon projet, ce qui permet de lancer tout le programme est fait dans un fichier index.php au lieu de grid, ce qui fait plus sens.
 
@@ -17,7 +17,7 @@ Toutefois j'ai modifier l'architecture comme ci-dessus afin de mieux organiser l
 
 ---
 
-## O : Open/Closed Principle
+## **O : Open/Closed Principle**
 
 Avant chacune des pièces de mon échéquier `extend` la classe `Piece`. Je voulais qe chacune de mes pièces aient une méthode `getPossibleMovement`. Au lieu de créer une interface que j'implémente pour chacune de mes pièces, j'avais créer cette méthode directement dans ma classe `Piece` avec un corps vide. J'ai donc modifier cela.
 
@@ -30,5 +30,17 @@ J'ai également retirer le bout de code suivant de la classe `Piece` puisqu'il n
 Voici à quoi ressemble la classe `Pion` désormais
 
 <img src="./public/images/pion.png" />
+
+---
+
+## **L : Liskov’s Substitution Principle (LSP)**
+
+J'utilise correctement le principe de Liskov notamment avec la méthode `getPossibleMovement` présente sur toutes les classes de mes pièces.
+
+La méthode prend en paramètre (cf: PossibleMovementInterface.php) un `int` qui doit être la taille de la grille. Aucune des classes de mes pièces ne rajoute de paramètre pour correctement fonctionner et elles renvoient tous un tableau.
+
+Ce qui me permet d'avoir les déplacements possible de toutes mes pièces avec une seule méthode qui fonctionne dans tous les cas sans `if` ou `instance of` (comme le préconise le _Single Responsibility Principle_)
+
+<img src="./public/images/displayGrid.png" />
 
 ---
