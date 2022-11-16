@@ -44,3 +44,11 @@ Ce qui me permet d'avoir les déplacements possible de toutes mes pièces avec u
 <img src="./public/images/displayGrid.png" />
 
 ---
+
+## **I : Interface Segregation Principle (ISP)**
+
+En enlevant le bout de code évoqué précédemment (cf: _Open/Closed Principle_) et en le remplaçant par une interface, cela m'a permit de respecter le principe de ségrégation d'interface.
+
+Désormais seul les classes ayant besoin de la méthode l'implémente tandis que précédemment la classes `Piece` disposait aussi de cette méthode qui lui était inutile.
+
+---
